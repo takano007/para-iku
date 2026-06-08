@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Log - 植物定点観測</title>
+    <!-- CSSの読み込み -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Supabase JS Library (CDN経由) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <header>
+        <h1>🌱 Plant Log</h1>
+    </header>
+
+    <main>
+        <!-- 植物一覧エリア -->
+        <section class="plant-list-container">
+            <div id="plantList" class="plant-list">
+                <!-- JavaScriptで動的に生成されます -->
+            </div>
+        </section>
+    </main>
+
+    <!-- カメラモーダル -->
+    <div id="cameraModal" class="modal">
+        <div class="modal-content">
+            <div class="camera-container">
+                <video id="video" class="camera-view" autoplay playsinline disablePictureInPicture controlslist="nodownload noplaybackrate"></video>
+                <img id="overlayPhoto" class="overlay-photo" src="" alt="前回の写真">
+            </div>
+            
+            <div class="camera-controls">
+                <button id="closeBtn" class="btn-secondary">閉じる</button>
+                <div class="shutter-space">
+                    <button id="captureBtn" class="btn-shutter"></button>
+                </div>
+                <div class="status-msg" id="statusMsg"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- パラパラ漫画の再生モーダル -->
+    <div id="playbackModal" class="modal">
+        <div class="modal-content">
+            <div class="playback-container">
+                <img id="playbackImage" class="playback-view" src="" alt="成長記録">
+                <div id="playbackMeta" class="playback-meta"></div>
+            </div>
+            
+            <div class="camera-controls">
+                <button id="closePlaybackBtn" class="btn-secondary">閉じる</button>
+                <div class="status-msg" id="playbackStatus"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JSの読み込み -->
+    <script src="script.js"></script>
+</body>
+</html>
