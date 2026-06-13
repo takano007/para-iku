@@ -306,7 +306,7 @@ async function startPlayback(plantId) {
             
             // 最後の写真まで再生し終わったときの判定
             if (currentIndex >= records.length) {
-                if (loopCount >= 2) { 
+                if (loopCount >= 1) { 
                     // ★【変更】すでに2回（2周）再生完了していたらタイマーを止める
                     clearInterval(playbackInterval);
                     playbackStatus.innerText = "再生完了";
@@ -319,7 +319,7 @@ async function startPlayback(plantId) {
             }
             
             showImage(currentIndex);
-        }, 300);
+        }, 800);
 
     } catch (error) {
         console.error('再生エラー:', error);
